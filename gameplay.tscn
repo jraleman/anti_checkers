@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/game/game_shell.tscn" id="1_shell"]
+[ext_resource type="Script" path="res://games/anti_checkers/gameplay.gd" id="2_game"]
+
+[node name="AntiCheckers" instance=ExtResource("1_shell")]
+script = ExtResource("2_game")
+
+[node name="Background" parent="BackgroundLayer" index="0"]
+material = null
+color = Color(0.063, 0.059, 0.098, 1)
+script = null
+
+[node name="Caption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Overview/Hits/Layout" index="0"]
+text = "TURNS PLAYED"
+
+[node name="Caption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Overview/Accuracy/Layout" index="0"]
+text = "PIECES LEFT"
+
+[node name="HitsCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerOne/Layout/Stats" index="0"]
+text = "Turns played"
+
+[node name="MissesCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerOne/Layout/Stats" index="2"]
+text = "Captures taken"
+
+[node name="AccuracyCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerOne/Layout/Stats" index="4"]
+text = "Given away"
+
+[node name="StreakCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerOne/Layout/Stats" index="6"]
+text = "Kings crowned"
+
+[node name="HitsCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerTwo/Layout/Stats" index="0"]
+text = "Turns played"
+
+[node name="MissesCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerTwo/Layout/Stats" index="2"]
+text = "Captures taken"
+
+[node name="AccuracyCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerTwo/Layout/Stats" index="4"]
+text = "Given away"
+
+[node name="StreakCaption" parent="HUD/RoundOver/Center/ScorePanel/Layout/Report/Players/PlayerTwo/Layout/Stats" index="6"]
+text = "Kings crowned"

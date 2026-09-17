@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/boot/intro.tscn" id="1_intro"]
+
+[node name="AntiCheckersIntro" instance=ExtResource("1_intro")]
+cards = Array[String](["Twelve checkers. Nothing to keep.", "If you can jump, you must.\nKeep jumping with the same piece.", "Reach the far row. Become a king.\nYour turn ends there.", "Give every checker away.\nNothing left? You win."])
+fade_in = 0.4
+hold = 2.0
+fade_out = 0.3
+next_scene = "res://scenes/menus/main_menu.tscn"
+
+[node name="SkipButton" parent="Frame/Layout/Bottom" index="1"]
+custom_minimum_size = Vector2(104, 56)
+focus_mode = 2
+tooltip_text = "Skip the opening and take a seat."
+
+[node name="ProgressFill" parent="Progress" index="1"]
+color = Color(0.929, 0.745, 0.514, 0.85)

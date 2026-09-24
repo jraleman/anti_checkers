@@ -49,6 +49,7 @@ var _leaving := false
 var _sounds: Dictionary[String, AudioStreamWAV] = {}
 var _ui_factor := 1.0
 var _hud_font_sizes: Dictionary[Control, int] = {}
+var _capture_inset := 0.0
 
 
 func _ready() -> void:
@@ -843,8 +844,14 @@ func _playfield_bounds() -> Rect2:
 		dimensions.y - 35 * _ui_factor,
 		(_hint.get_parent() as Control).get_global_rect().position.y - 16 * _ui_factor
 	)
+	bottom = minf(bottom, dimensions.y - _capture_inset)
 	return Rect2(Vector2(SIDE_CLEARANCE, top),
 		Vector2(maxf(dimensions.x - SIDE_CLEARANCE * 2, 1), maxf(bottom - top, 1)))
+
+
+func _set_capture_inset(bottom: float) -> void:
+	_capture_inset = maxf(bottom, 0.0)
+	_layout_board.call_deferred()
 
 
 func _layout_board() -> void:

@@ -15,7 +15,8 @@ static func manifest() -> GameManifest:
 	game.menu_order = 6
 	game.gameplay_scene_path = "res://games/anti_checkers/gameplay.tscn"
 	game.intro_scene_path = "res://games/anti_checkers/intro.tscn"
-	game.tutorial_poster_path = "res://games/anti_checkers/assets/poster.svg"
+	game.tutorial_video_path = "res://games/anti_checkers/assets/video/tutorial.ogv"
+	game.tutorial_poster_path = "res://games/anti_checkers/assets/video/tutorial_poster.webp"
 	game.share_art_scene_path = "res://games/anti_checkers/ui/share_art.tscn"
 	game.share_art_style = GAME_ID
 	game.stats_url = "https://deskcansaw.com"

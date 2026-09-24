@@ -19,8 +19,10 @@ godot --path ..\.. -- --game=anti_checkers
 
 The existing catalog discovers `game.gd`. A standalone launch follows the
 studio sting, skippable game opening, themed title screen, mode selection and
-instructions. `--game=all` includes it in the collection picker. Its original
-poster and written walkthrough work without a tutorial video.
+instructions. `--game=all` includes it in the collection picker. A 29-second
+captioned gameplay recording and matching poster teach the opening, camera,
+compulsory jump chains, crowning and a giveaway win. Practice positions are
+labelled as such; their moves still use the live board input and rules.
 
 ## Rules and modes
 
@@ -101,6 +103,7 @@ to the real studio website, not an invented stats service.
 | `ui/board_input.gd`, `ui/match_panel.gd`, `ui/match_dialog.gd` | Projected picking, accessible briefing and explicit resignation |
 | `gameplay.gd`, `gameplay.tscn` | Inherited shell integration and match lifecycle |
 | `assets/`, `ui/share_art.*`, `ui/menu_background.*`, `intro.tscn` | Original artwork, standalone presentation and opening |
+| `tools/tutorial_driver.gd`, `assets/video/` | Deterministic, development-only tutorial driver and shipped Theora recording/poster |
 
 There are no dependencies on another game's folder. The 64 tiles and four
 side/type checker groups are `MultiMesh` batches; the graphical regression
@@ -128,3 +131,9 @@ settings. Shared coverage is already catalog-driven: `game_shell_test.gd`,
 the new manifest automatically. The standalone regression also runs with
 `--game=anti_checkers`. Use an isolated user profile for shared tests that
 exercise persistence or complete real rounds.
+
+Re-record from `godot-base` with
+`pwsh tools\record_tutorials.ps1 -Godot godot -Games anti_checkers`.
+The shared recorder isolates saves, reserves space for captions through
+`_set_capture_inset`, and rejects a take unless the CPU reply, full jump chain,
+crown and final giveaway all happened. The inset is zero during normal play.
